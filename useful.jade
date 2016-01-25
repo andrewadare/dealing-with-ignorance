@@ -1,0 +1,35 @@
+
+      //- Useful snippets for working with Reveal.js
+
+      section
+        h2 Fragment Styles
+        p.fragment Default fragment behavior
+        p
+          //- Note trailing whitespaces!
+          span.fragment.highlight-red red 
+          span.fragment.highlight-blue blue 
+          span.fragment.highlight-green green
+
+      section
+        h2 Fragment Styles
+        p There's different types of fragments, like:
+        p.fragment.grow grow
+        p.fragment.shrink shrink
+        p.fragment.fade-out fade-out
+        p.fragment.current-visible current-visible
+
+      //- Highlighted source code block
+      section 
+        h2 page title
+        pre
+          code.hljs.
+            def dostuff(x): 
+                return x + 2
+
+      //- White background on this slide only
+      section(data-background='#fff')
+        h2 Slide title
+
+      //- Background video, but no controls: 
+      section(data-background-video="flip.mp4,flip.webm")
+

@@ -1,0 +1,276 @@
+extends layout
+
+block title
+  title PhET Talk
+
+block content
+  div.reveal
+    div.slides
+
+      section(data-background='figs/gammas.svg')
+        h1 Getting Serious about Ignorance
+        p(style='text-align: center;').
+          #[span.red #[strong Learning and Probabilistic Reasoning]]
+        p(style='text-align: center;') Andrew M. Adare
+        p(style='text-align: center;') January 26, 2016
+
+      
+      section
+        p #[span.green #[strong knowl·edge]]
+        ol
+          li facts, information, and skills acquired by a person through experience or education; the theoretical or practical understanding of a subject.
+          li awareness or familiarity gained by experience of a fact or situation.
+        br
+        p.fragment This talk is about the transition from #[span.blue belief] to #[span.green knowledge] through #[span.red evidence] and probabilistic reasoning.
+        //- Notes: push 's' for speaker view
+        aside.notes
+          ul Speaker notes:
+            li Impossible in 20 min; will give a flavor
+            li BI vs FI, BI examples
+            li Connection to human learning?
+
+      
+      section
+        h2 Bayesian Inference
+        p #[span.green Fascinating history:]
+        p Developed by a Christian minister; applied in war; suppressed and discredited for much of 1900's
+        p.fragment(data-fragment-index="1") #[span.green Essential features:]
+          ul.fragment(data-fragment-index="1")
+            li Probability is subjective belief
+            li A priori information is important and explicit
+            li Model parameters are treated as random variates
+        br
+        p.fragment(data-fragment-index="2") Contrast this with frequentist inference:
+        aside.notes
+          ul
+            li Thomas Bayes, LaPlace, Turing
+            li Fischer, Neyman, Pearson
+            li Resurgence
+
+        
+      section
+        h2 Frequentist statistics
+        p Any experiment is viewed as one of an infinite sequence of similiar, independent experiments
+        p Unnatural/problematic for rare events like earthquakes, stock market crashes
+        p Unknown parameters typically treated as fixed values; data points get error bars
+        p Method of Maximum Likelihood - key technique
+        aside.notes
+          ul
+            li Characterized by hypothesis tests, confidence intervals
+            li p-values banned from some journals
+            li Nate Silver video
+      
+
+      section
+        h2 Probabilities: the big three
+        div.lefthalf
+          p Consider this 2D histogram:
+          img(data-src='figs/prob-grid.png' width='100%')
+          p N is the sum of all cells
+        div.righthalf.fragment
+          p #[span.green Joint $$ p(x_i, y_j) = \frac{n_{ij}}{N} $$]
+          p #[span.yellow Marginal $$ p(x_i) = \frac{c_i}{N} $$]
+          p #[span.red Conditional $$ p(y_j\,|\,x_i) = \frac{n_{ij}}{c_i} $$]
+        
+
+      section
+        h2 Product rule of probability
+        div.lefthalf
+          p #[span.green Joint $$ p(x_i, y_j) = \frac{n_{ij}}{N} $$]
+          p #[span.yellow Marginal $$ p(x_i) = \frac{c_i}{N} $$]
+          p #[span.red Conditional $$ p(y_j\,|\,x_i) = \frac{n_{ij}}{c_i} $$]
+        div.righthalf.fragment
+          p Combine:
+          p #[span.green $ p(x_i, y_j) = $]  #[span.red $ \frac{n_{ij}}{c_i}$ ] #[span.yellow $\frac{c_i}{N} $]
+          p #[span.green $ = $] #[span.red $ p(y_j\,|\,x_i)$] #[span.yellow $ p(x_i) $]
+
+
+      section
+        h2 Bayes' Rule
+        p $$ p(x, y) = p(y\,|\,x)\,p(x) = p(x\,|\,y)\,p(y) $$
+        br
+        p $$ p(y\,|\,x) = \frac{p(x\,|\,y)\,p(y)}{p(x)} $$
+        br
+        p $$ \mathrm{posterior} = \frac{\mathrm{likelihood} \times \mathrm{prior}}{\mathrm{evidence}} $$
+
+
+      section
+        h2 Statistical learning
+        p Two goals, given a dataset $ \{ \mathbf{x}_{i} \}_{i=1}^N $
+        ol
+          li #[span.green Learn:] find the unknown parameters $\mathbf{\theta}$ of a model by fitting to the data.
+          li #[span.green Predict:] calculate the probability of a new datum $\mathbf{x}^*$ under the model
+
+        p Three general approaches
+        ol
+          li Maximum Likelihood (ML) Estimation
+          li Maximum A Posteriori (MAP) estimation
+          li Fully Bayesian methods
+        aside.notes Needless to say, an accurate predictive distribution is incredibly powerful. Worth \$\$, hence the explosion in demand for data sci jobs
+
+
+      section
+        h2 Maximum Likelihood Estimation
+        p.
+         Find the set of parameters under which the data are most likely: 
+         $$
+         \hat{\mathbf{\theta}} 
+         = \underset{\mathbf{\theta}}{\mathrm{argmax}}
+         \left[ p(\mathbf{x}_{1\ldots I} \,|\, \mathbf{\theta}) \right] 
+         = \underset{\mathbf{\theta}}{\mathrm{argmax}} \left[ 
+         \prod_{i=1}^I p(\mathbf{x}_i \,|\, \mathbf{\theta})
+         \right]
+         $$
+        div.lefthalf
+          p Ordinary Least Squares is an ML estimator, because it minimizes negative log Gaussian likelihood.
+        div.righthalf
+          img(data-src='figs/leastsquare.gif' width='100%')
+
+      
+      section
+        h2 Maximum A Posteriori
+        p.
+         MAP estimation uses Bayes' rule (without the denominator)
+         $$
+         \hat{\mathbf{\theta}} 
+         = \underset{\mathbf{\theta}}{\mathrm{argmax}}
+         \left[ 
+         p(\mathbf{\theta} \,|\, \mathbf{x}_{1\ldots I})
+         \right] 
+         = \underset{\mathbf{\theta}}{\mathrm{argmax}} \left[ 
+         \prod_{i=1}^I p(\mathbf{x}_i \,|\, \mathbf{\theta})
+         p(\mathbf{\theta})
+         \right]
+         $$
+         This generalizes ML estimation by introducing prior knowledge/belief via $ p(\mathbf{\theta}) $.
+        aside.notes.
+          So MLE is just a special case of MAP estimation, when the prior is uninformative.
+
+
+      section
+        h2 Fully Bayesian Approach
+        p Many choices of $\mathbf{\theta}$ may be consistent with the data. 
+        p.fragment Point estimates cannot accommodate that.
+        p.fragment.
+          Fully Bayesian methods calculate the full joint posterior probability over the model parameters:
+          $$
+          p(\mathbf{\theta} \,|\, \mathbf{x}_{1\ldots I}) = \frac{\prod_{i=1}^I p(\mathbf{x}_i \,|\, \mathbf{\theta}) p(\mathbf{\theta})} {p(\mathbf{x}_{1\ldots I})} $$
+        p.fragment This is a distribution over possible models.
+        aside.notes
+          ul 
+          li Accept reality: there may be many choices of $\mathbf{\theta}$ that are consistent with the data.
+          li Point estimates sweep that under the rug.
+          li Discuss dimensionality of posterior
+
+
+      section
+        h2 Predictive distributions
+        p $p(\mathbf{x}^* \,|\, \mathbf{\theta})$ gives us a prediction for the unseen data $\mathbf{x}^*$ for a given $\mathbf{\theta}$.
+        p.fragment.
+          Since there are many possible $\mathbf{\theta}$ values, we must integrate over them all, weighting by their probability:
+          $$
+          p(\mathbf{x}^* \,|\, \mathbf{x}_{1\ldots I}) = 
+          \int p(\mathbf{x}^* \,|\, \mathbf{\theta}) \, p(\mathbf{\theta} \,|\, \mathbf{x}_{1\ldots I}) d\mathbf{\theta}
+          $$
+        p.fragment #[span.green A unified picture:] "posterior" from ML and MAP estimation is like a $\delta$-function at $\mathbf{\hat\theta}$.
+        p.fragment So predicting $\mathbf{x}^*$ simply amounts to evaluating $p(\mathbf{x}^* \,|\, \mathbf{\hat\theta })$.
+
+
+      //- p.fragment The weight factor is the posterior probability.
+      //- section
+      //-   h2 Predictive distributions
+      //-   p #[span.green A unified picture]
+      //-   p.
+      //-     Since ML and MAP methods give us only point estimates, their "posterior" is like a $\delta$-function at $\mathbf{\hat\theta}$.
+      //-     $$
+      //-     p(\mathbf{x}^* \,|\, \mathbf{x}_{1\ldots I}) = 
+      //-     \int p(\mathbf{x}^* \,|\, \mathbf{\theta}) \delta(\mathbf{\theta} - \mathbf{\hat\theta}) d\mathbf{\theta}
+      //-     $$
+      //-     So a prediction for $\mathbf{x}^*$ simply amounts to evaluating $p(\mathbf{x}^* \,|\, \mathbf{\hat\theta })$.
+
+
+      section 
+        h2 A minimal example: coin flipping
+        p How do we test whether a coin is fair?
+        br
+        p.
+         Use a #[span.red binomial distribution] to model the likelihood:
+         $$
+         \mathrm{Binom}(k\,|\, N, \theta) = \binom{N}{k} \theta^k (1-\theta)^{N-k}
+         $$
+         $\theta$ controls the probability to obtain $k$ heads in $N$ flips.
+
+        //- Add a plot?
+        //- ul
+        //-   li Mean: $N \theta$
+        //-   li Variance: $N \theta(1-\theta)$
+
+
+      section
+        h2 The Beta-Binomial Model
+        p.
+          Use a #[span.green Beta distribution] for $p(\theta)$:
+          $$ \mathrm{Beta}(\theta \,|\, a, b) \propto
+          \theta^{a - 1}(1 - \theta)^{b - 1} $$
+        //- $$ \mathrm{Beta}(\theta \,|\, a, b) = 
+          \frac{\Gamma(a + b)}{\Gamma(a)\Gamma(b)}
+          \theta^{a - 1}(1 - \theta)^{b - 1} $$
+        div.lefthalf
+          p #[span.red Conjugate prior] to binomial likelihood
+          p #[span.yellow Uninformative] if $a = b = 1$ (uniform distribution)
+          p #[span.blue Posterior:] $\mathrm{Beta}(\theta \,|\, N_h + a, N_t + b)$
+        div.righthalf
+          img(data-src='figs/Beta_distribution_pdf.svg'
+              style='background-color: white;'
+              width='100%')
+
+      section
+        video.stretch(controls)
+          source(data-src="flip.mp4" type="video/mp4")
+          Your browser doesn't support HTML5 video in MP4 with H.264.
+      
+      section
+        h2 Observations
+        p Both methods agree on the truth ($\theta = 0.5$) as $N \to \infty$
+        p But the B-B model is immediately closer to the correct answer, with a reasonable uncertainty estimate
+        //- p #[span.red Overfitting] 
+        p.
+          After two flips (both heads up), the MLE mean was $\frac{N_{h}}{N} = 1$ with a variance of zero!
+        p.
+          The mean from the B-B model was
+          $$
+          \langle \theta \rangle = \frac{N_{h} + a}{N + a + b} = \frac{3}{4}
+          $$
+          with a variance of $0.194^2$.
+        //- After two flips, the MLE for theta was maximally biased toward heads with a variance of zero!
+        aside.notes.
+          See Murphy 3.3 for details
+      section
+        h2 Linear regression with a Gaussian model
+        p A Bayesian alternative to least squares
+
+
+      section
+        h2 Hidden function and prior
+        img.lefthalf(data-src='svg/true_y.svg'
+                     style='background-color: white;')
+        img.righthalf(data-src='svg/prior.svg'
+                      style='background-color: white;')
+
+
+      section
+        - for (var i = 1; i < 21; i++)
+            section
+              - var k = (i < 10) ? '0' + i : i
+              img.lefthalf(data-src='svg/post' + k + '.svg'
+                           style='background-color: white;')
+              img.righthalf(data-src='svg/pred' + k + '.svg'
+                            style='background-color: white;')
+
+
+      section
+        video.stretch(controls)
+          source(data-src="ekf-slam.mp4" type="video/mp4")
+          Your browser doesn't support HTML5 video in MP4 with H.264.
+
+
