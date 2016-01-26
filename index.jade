@@ -27,6 +27,8 @@ block content
         q(style='text-align: center;') What do you do, sir?
         br
         p(style='text-align: right') John Maynard Keynes
+        aside.notes
+          p But when confronted with new data, I update my beliefs.
 
 
       section
@@ -51,9 +53,9 @@ block content
         p Developed for apologetics; applied in war; suppressed and discredited for centuries; now rocking the mic
         p.fragment(data-fragment-index="1") #[span.green Essential features:]
           ul.fragment(data-fragment-index="1")
-            li Probability is subjective belief
-            li A priori information is important and explicit
-            li Model parameters are treated as random variates
+            li Probability as subjective belief
+            li A priori information important--and explicit
+            li Model parameters as random variates
         br
         p.fragment(data-fragment-index="2") Contrast this with frequentist inference:
         aside.notes
@@ -177,7 +179,7 @@ block content
         p.fragment This is a distribution over possible models.
         aside.notes
           ul 
-          li Accept reality: there may be many choices of $\theta$ that are consistent with the data.
+          li Accept reality: there may be many choices of theta that are consistent with the data.
           li Point estimates sweep that under the rug.
           li Discuss dimensionality of posterior
 
@@ -237,9 +239,8 @@ block content
           li Generate coin tosses using a fair coin ($\theta = 0.5$)
           li Compute estimators for $\theta$ from the outcomes
         br
-        p We will compare $\hat{\theta}_{MLE} = N_{h}/N$ 
-        p vs. 
-        p the posterior mean $E[\theta \,|\, \mathrm{outcomes}]$
+        p We will compare $$\hat{\theta}_{MLE} = \frac{N_{h}}{N}$$ 
+        p vs. the posterior mean $$E[\theta \,|\, \mathrm{outcomes}]$$
 
 
       section
