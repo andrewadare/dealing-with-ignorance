@@ -8,13 +8,27 @@ block content
     div.slides
 
       section(data-background='figs/gammas.svg')
-        h1 Getting Serious about Ignorance
+        h1 Dealing With Ignorance
         p(style='text-align: center;').
           #[span.red #[strong Learning and Probabilistic Reasoning]]
         p(style='text-align: center;') Andrew M. Adare
         p(style='text-align: center;') January 26, 2016
-
+        
+        //- Notes: push 's' for speaker view
+        aside.notes
+          ul
+            li asked to talk about an interest
+            li play to strengths - talk about ignorance
       
+
+      section.center
+        q(style='text-align: center;') When the facts change, I change my opinion.
+        br
+        q(style='text-align: center;') What do you do, sir?
+        br
+        p(style='text-align: right') John Maynard Keynes
+
+
       section
         p #[span.green #[strong knowl·edge]]
         ol
@@ -22,18 +36,19 @@ block content
           li awareness or familiarity gained by experience of a fact or situation.
         br
         p.fragment This talk is about the transition from #[span.blue belief] to #[span.green knowledge] through #[span.red evidence] and probabilistic reasoning.
-        //- Notes: push 's' for speaker view
         aside.notes
-          ul Speaker notes:
-            li Impossible in 20 min; will give a flavor
-            li BI vs FI, BI examples
-            li Connection to human learning?
+          ul
+            li belief, knowledge- loaded words
+            li but they'll take specific meanings
+            li Not about epistemology or cognition
+            li Interested in how predictive models learn
+            li in turn gives us learning and insight
 
-      
+
       section
         h2 Bayesian Inference
         p #[span.green Fascinating history:]
-        p Developed by a Christian minister; applied in war; suppressed and discredited for much of 1900's
+        p Developed for apologetics; applied in war; suppressed and discredited for centuries; now rocking the mic
         p.fragment(data-fragment-index="1") #[span.green Essential features:]
           ul.fragment(data-fragment-index="1")
             li Probability is subjective belief
@@ -51,9 +66,9 @@ block content
       section
         h2 Frequentist statistics
         p Any experiment is viewed as one of an infinite sequence of similiar, independent experiments
-        p Unnatural/problematic for rare events like earthquakes, stock market crashes
-        p Unknown parameters typically treated as fixed values; data points get error bars
-        p Method of Maximum Likelihood - key technique
+        p.fragment Key technique: Method of Maximum Likelihood
+        p.fragment Unknown parameters typically treated as fixed values; data points get error bars
+        p.fragment Unnatural/problematic for rare events like earthquakes, stock market crashes
         aside.notes
           ul
             li Characterized by hypothesis tests, confidence intervals
@@ -99,14 +114,18 @@ block content
         p Two goals, given a dataset $ \{ \mathbf{x}_{i} \}_{i=1}^N $
         ol
           li #[span.green Learn:] find the unknown parameters $\mathbf{\theta}$ of a model by fitting to the data.
-          li #[span.green Predict:] calculate the probability of a new datum $\mathbf{x}^*$ under the model
+          li.fragment #[span.green Predict:] calculate the probability of a new datum $\mathbf{x}^*$ under the model
 
-        p Three general approaches
-        ol
-          li Maximum Likelihood (ML) Estimation
-          li Maximum A Posteriori (MAP) estimation
-          li Fully Bayesian methods
-        aside.notes Needless to say, an accurate predictive distribution is incredibly powerful. Worth \$\$, hence the explosion in demand for data sci jobs
+        div.fragment
+          p Three general approaches
+          ol
+            li Maximum Likelihood (ML) Estimation
+            li Maximum A Posteriori (MAP) estimation
+            li Fully Bayesian methods
+        aside.notes
+          ul
+            li Learning means generalization
+            li A good predictive also incredibly powerful + $, hence data sci
 
 
       section
@@ -122,9 +141,9 @@ block content
          \right]
          $$
         div.lefthalf
-          p Ordinary Least Squares is an ML estimator, because it minimizes negative log Gaussian likelihood.
+          p Ordinary Least Squares works as an ML estimator for Gaussian likelihood (by minimizing $-\!\ln p(\mathbf{x} \,|\, \mathbf{\theta})$)
         div.righthalf
-          img(data-src='figs/leastsquare.gif' width='100%')
+          img(data-src='figs/gas-prices.png' width='100%')
 
       
       section
@@ -158,7 +177,7 @@ block content
         p.fragment This is a distribution over possible models.
         aside.notes
           ul 
-          li Accept reality: there may be many choices of $\mathbf{\theta}$ that are consistent with the data.
+          li Accept reality: there may be many choices of $\theta$ that are consistent with the data.
           li Point estimates sweep that under the rug.
           li Discuss dimensionality of posterior
 
@@ -176,40 +195,26 @@ block content
         p.fragment So predicting $\mathbf{x}^*$ simply amounts to evaluating $p(\mathbf{x}^* \,|\, \mathbf{\hat\theta })$.
 
 
-      //- p.fragment The weight factor is the posterior probability.
-      //- section
-      //-   h2 Predictive distributions
-      //-   p #[span.green A unified picture]
-      //-   p.
-      //-     Since ML and MAP methods give us only point estimates, their "posterior" is like a $\delta$-function at $\mathbf{\hat\theta}$.
-      //-     $$
-      //-     p(\mathbf{x}^* \,|\, \mathbf{x}_{1\ldots I}) = 
-      //-     \int p(\mathbf{x}^* \,|\, \mathbf{\theta}) \delta(\mathbf{\theta} - \mathbf{\hat\theta}) d\mathbf{\theta}
-      //-     $$
-      //-     So a prediction for $\mathbf{x}^*$ simply amounts to evaluating $p(\mathbf{x}^* \,|\, \mathbf{\hat\theta })$.
-
-
       section 
         h2 A minimal example: coin flipping
         p How do we test whether a coin is fair?
-        br
         p.
-         Use a #[span.red binomial distribution] to model the likelihood:
+         Use the #[span.red binomial distribution] to model the likelihood:
          $$
-         \mathrm{Binom}(k\,|\, N, \theta) = \binom{N}{k} \theta^k (1-\theta)^{N-k}
+         p(k\,|\, N, \theta) = \binom{N}{k} \theta^k (1-\theta)^{N-k}
          $$
          $\theta$ controls the probability to obtain $k$ heads in $N$ flips.
-
-        //- Add a plot?
-        //- ul
-        //-   li Mean: $N \theta$
-        //-   li Variance: $N \theta(1-\theta)$
+        aside.notes
+          ul
+            li Classic inverse problem:
+            li Infer cause (th) from effect (k)
+         //- \mathrm{Binom}(k\,|\, N, \theta) = \binom{N}{k} \theta^k (1-\theta)^{N-k}
 
 
       section
         h2 The Beta-Binomial Model
         p.
-          Use a #[span.green Beta distribution] for $p(\theta)$:
+          Use a #[span.green Beta distribution] for the prior $p(\theta)$:
           $$ \mathrm{Beta}(\theta \,|\, a, b) \propto
           \theta^{a - 1}(1 - \theta)^{b - 1} $$
         //- $$ \mathrm{Beta}(\theta \,|\, a, b) = 
@@ -224,6 +229,19 @@ block content
               style='background-color: white;'
               width='100%')
 
+
+      section
+        h2 Coin-Flip Simulation
+        p Max. Likelihood vs Bayesian shootout
+        ul
+          li Generate coin tosses using a fair coin ($\theta = 0.5$)
+          li Compute estimators for $\theta$ from the outcomes
+        br
+        p We will compare $\hat{\theta}_{MLE} = N_{h}/N$ 
+        p vs. 
+        p the posterior mean $E[\theta \,|\, \mathrm{outcomes}]$
+
+
       section
         video.stretch(controls)
           source(data-src="flip.mp4" type="video/mp4")
@@ -231,23 +249,77 @@ block content
       
       section
         h2 Observations
-        p Both methods agree on the truth ($\theta = 0.5$) as $N \to \infty$
-        p But the B-B model is immediately closer to the correct answer, with a reasonable uncertainty estimate
-        //- p #[span.red Overfitting] 
-        p.
+        p Both methods agree on the truth as $N \to \infty$
+        p.fragment.
           After two flips (both heads up), the MLE mean was $\frac{N_{h}}{N} = 1$ with a variance of zero!
-        p.
-          The mean from the B-B model was
-          $$
-          \langle \theta \rangle = \frac{N_{h} + a}{N + a + b} = \frac{3}{4}
-          $$
-          with a variance of $0.194^2$.
-        //- After two flips, the MLE for theta was maximally biased toward heads with a variance of zero!
+        p.fragment #[span.red Overfitting:] that prediction wouldn't generalize.
+        p.fragment But the Bayesian estimate is immediately closer to the correct answer, with a saner uncertainty
+        p.fragment.
+          Posterior mean $ = \frac{N_{h} + a}{N + a + b} = \frac{3}{4} $
+          with a variance of $0.19^2$.
         aside.notes.
           See Murphy 3.3 for details
+
+
       section
-        h2 Linear regression with a Gaussian model
-        p A Bayesian alternative to least squares
+        h2 SLAM
+        p.small Simultaneous Localization and Mapping
+        div(style='display: inline-block; float:left; width:56%;')
+          img(data-src='figs/slam-diagram.png')
+        div(style='display: inline-block; float:right; width:40%;')
+          p Start at unknown location in an unknown environment
+          p Incrementally build a consistent map
+          p Simultaneously determine location within map
+
+      
+      section
+        h2 Recursive state estimation
+        p SLAM can be solved using an extended Kalman filter (EKF)
+        p The EKF is a specialization of Bayesian filtering for linearized Gaussian models
+        br
+        p Simulation: autonomous navigation using predefined waypoints, landmarks observed with a rangefinder, and Bayesian filtering
+      
+
+      section
+        video.stretch(controls)
+          source(data-src="ekf-slam.mp4" type="video/mp4")
+          Your browser doesn't support HTML5 video in MP4 with H.264.
+
+
+      //- section(data-background='figs/car.png')
+      section
+        img.stretch(data-src='figs/autonomous-car.png')
+
+
+      section
+        h2 Summary
+        ul
+          li Statistical learning involves initial beliefs, experience, and a conformant model
+          li.fragment Much like human learning!
+          li.fragment Machine learning is way too cool to be co-opted by marketers and advertisers
+
+
+      section.center
+        h3 Extras
+
+
+      section
+        h2 Gaussian models        
+        p The Gaussian is the highest-entropy distribution
+        img(data-src='figs/gaussian.png' width='70%')
+
+
+      section
+        h2 Linear regression demo: a Bayesian rendition
+        p Outline of demo, skipping many details:
+        ul
+          li Synthetic data is generated from $f(x,\mathbf{a}) = a_0 + a_1 x$
+          li Goal: infer $a_0$ and $a_1$ from a fit to limited data
+          li Noise is added to $f(x_n)$ to give target values $t_n$
+          li Likelihood: $p(t|x,w,\beta) = \prod_n N(t_n|w^T \phi, 1/\beta)$
+          li Gaussian prior on $w_0$, $w_1$: $p(w|\alpha) = N(0, \Sigma)$, where $\Sigma = 1/\alpha \, I$
+        p.
+         The posterior is thus also Gaussian: $p(w|t) = N(w|m_N, S_N)$, where $m_N = \beta S_N \Phi^T t$, and $S_N^{-1} = \alpha I + \beta \Phi^T \Phi$
 
 
       section
@@ -266,11 +338,4 @@ block content
                            style='background-color: white;')
               img.righthalf(data-src='svg/pred' + k + '.svg'
                             style='background-color: white;')
-
-
-      section
-        video.stretch(controls)
-          source(data-src="ekf-slam.mp4" type="video/mp4")
-          Your browser doesn't support HTML5 video in MP4 with H.264.
-
 
