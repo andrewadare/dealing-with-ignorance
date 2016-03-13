@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500" viewBox="0 0 500 500">
+<defs>
+  <clipPath id="clip00">
+    <rect x="75" y="25" width="401" height="401"/>
+  </clipPath>
+</defs>
+<defs>
+  <clipPath id="clip01">
+    <rect x="0" y="0" width="500" height="500"/>
+  </clipPath>
+</defs>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(0, 23.4444, 430.332)" x="23.4444" y="430.332">-</text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(0, 34.2593, 430.332)" x="34.2593" y="430.332">0.8</text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(0, 23.4444, 270.332)" x="23.4444" y="270.332">-</text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(0, 34.2593, 270.332)" x="34.2593" y="270.332">0.4</text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(0, 49.7037, 110.332)" x="49.7037" y="110.332">0</text>
+</g>
+<polyline clip-path="url(#clip01)" style="stroke:#000000; stroke-opacity:1; fill:none" points="
+  75,425 75,425 65,425 75,425 75,345 70,345 75,345 75,265 65,265 75,265 
+  75,185 70,185 75,185 75,105 65,105 75,105 75,25 70,25 75,25 
+  
+  "/>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(0, 64.4444, 456.74)" x="64.4444" y="456.74">-</text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(0, 75.2593, 456.74)" x="75.2593" y="456.74">1</text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(0, 269.852, 456.74)" x="269.852" y="456.74">0</text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(0, 469.852, 456.74)" x="469.852" y="456.74">1</text>
+</g>
+<polyline clip-path="url(#clip01)" style="stroke:#000000; stroke-opacity:1; fill:none" points="
+  75,425 75,425 75,435 75,425 175,425 175,430 175,425 275,425 275,435 275,425 
+  375,425 375,430 375,425 475,425 475,435 475,425 
+  "/>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(0, 270, 485)" x="270" y="485">x</text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(-90, 15, 250)" x="15" y="250">a</text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:15; text-anchor:start;" transform="rotate(-90, 20.3241, 239.704)" x="20.3241" y="239.704">0</text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(-90, 15, 231.338)" x="15" y="231.338"> </text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(-90, 15, 215.375)" x="15" y="215.375"> a</text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:15; text-anchor:start;" transform="rotate(-90, 20.3241, 199.931)" x="20.3241" y="199.931">1</text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(-90, 15, 226.19)" x="15" y="226.19">+</text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(-90, 15, 191.565)" x="15" y="191.565">x</text>
+</g>
+<polyline clip-path="url(#clip00)" style="stroke:#ffb200; stroke-opacity:1; fill:none" points="
+  75,425 79.0404,420.96 83.0808,416.919 87.1212,412.879 91.1616,408.838 95.202,404.798 99.2424,400.758 103.283,396.717 107.323,392.677 111.364,388.636 
+  115.404,384.596 119.444,380.556 123.485,376.515 127.525,372.475 131.566,368.434 135.606,364.394 139.646,360.354 143.687,356.313 147.727,352.273 151.768,348.232 
+  155.808,344.192 159.848,340.152 163.889,336.111 167.929,332.071 171.97,328.03 176.01,323.99 180.051,319.949 184.091,315.909 188.131,311.869 192.172,307.828 
+  196.212,303.788 200.253,299.747 204.293,295.707 208.333,291.667 212.374,287.626 216.414,283.586 220.455,279.545 224.495,275.505 228.535,271.465 232.576,267.424 
+  236.616,263.384 240.657,259.343 244.697,255.303 248.737,251.263 252.778,247.222 256.818,243.182 260.859,239.141 264.899,235.101 268.939,231.061 272.98,227.02 
+  277.02,222.98 281.061,218.939 285.101,214.899 289.141,210.859 293.182,206.818 297.222,202.778 301.263,198.737 305.303,194.697 309.343,190.657 313.384,186.616 
+  317.424,182.576 321.465,178.535 325.505,174.495 329.545,170.455 333.586,166.414 337.626,162.374 341.667,158.333 345.707,154.293 349.747,150.253 353.788,146.212 
+  357.828,142.172 361.869,138.131 365.909,134.091 369.949,130.051 373.99,126.01 378.03,121.97 382.071,117.929 386.111,113.889 390.152,109.848 394.192,105.808 
+  398.232,101.768 402.273,97.7273 406.313,93.6869 410.354,89.6465 414.394,85.6061 418.434,81.5657 422.475,77.5253 426.515,73.4848 430.556,69.4444 434.596,65.404 
+  438.636,61.3636 442.677,57.3232 446.717,53.2828 450.758,49.2424 454.798,45.202 458.838,41.1616 462.879,37.1212 466.919,33.0808 470.96,29.0404 475,25 
+  
+  "/>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(0, 250, 25)" x="250" y="25">True f(x,a)</text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(0, 125, 75)" x="125" y="75">a</text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:15; text-anchor:start;" transform="rotate(0, 135.296, 80.3241)" x="135.296" y="80.3241">0</text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(0, 143.662, 75)" x="143.662" y="75">, a</text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:15; text-anchor:start;" transform="rotate(0, 164.255, 80.3241)" x="164.255" y="80.3241">1</text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(0, 172.62, 75)" x="172.62" y="75"> = </text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(0, 204.546, 75)" x="204.546" y="75">0.3, 0.5</text>
+</g>
+<g clip-path="url(#clip01)">
+<text style="fill:#000000; font-family:Arial; font-size:19; text-anchor:start;" transform="rotate(0, 193.731, 75)" x="193.731" y="75">-</text>
+</g>
+</svg>
