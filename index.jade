@@ -13,13 +13,13 @@ block content
           #[span.red #[strong Learning and Probabilistic Reasoning]]
         p(style='text-align: center;') Andrew M. Adare
         p(style='text-align: center;') January 26, 2016
-        
+
         //- Notes: push 's' for speaker view
         aside.notes
           ul
             li asked to talk about an interest
             li play to strengths - talk about ignorance
-      
+
 
       section.center
         q(style='text-align: center;') When the facts change, I change my opinion.
@@ -64,7 +64,7 @@ block content
             li Fischer, Neyman, Pearson
             li Resurgence
 
-        
+
       section
         h2 Frequentist statistics
         p Any experiment is viewed as one of an infinite sequence of similiar, independent experiments
@@ -76,7 +76,7 @@ block content
             li Characterized by hypothesis tests, confidence intervals
             li p-values banned from some journals
             li Nate Silver video
-      
+
 
       section
         h2 Probabilities: the big three
@@ -88,7 +88,7 @@ block content
           p #[span.green Joint $$ p(x_i, y_j) = \frac{n_{ij}}{N} $$]
           p #[span.yellow Marginal $$ p(x_i) = \frac{c_i}{N} $$]
           p #[span.red Conditional $$ p(y_j\,|\,x_i) = \frac{n_{ij}}{c_i} $$]
-        
+
 
       section
         h2 Product rule of probability
@@ -133,12 +133,12 @@ block content
       section
         h2 Maximum Likelihood Estimation
         p.
-         Find the set of parameters under which the data are most likely: 
+         Find the set of parameters under which the data are most likely:
          $$
-         \hat{\mathbf{\theta}} 
+         \hat{\mathbf{\theta}}
          = \underset{\mathbf{\theta}}{\mathrm{argmax}}
-         \left[ p(\mathbf{x}_{1\ldots I} \,|\, \mathbf{\theta}) \right] 
-         = \underset{\mathbf{\theta}}{\mathrm{argmax}} \left[ 
+         \left[ p(\mathbf{x}_{1\ldots I} \,|\, \mathbf{\theta}) \right]
+         = \underset{\mathbf{\theta}}{\mathrm{argmax}} \left[
          \prod_{i=1}^I p(\mathbf{x}_i \,|\, \mathbf{\theta})
          \right]
          $$
@@ -147,18 +147,18 @@ block content
         div.righthalf
           img(data-src='figs/gas-prices.png' width='100%')
 
-      
+
       section
         h2 Maximum A Posteriori
         p.
          MAP estimation uses Bayes' rule (without the denominator)
          $$
-         \hat{\mathbf{\theta}} 
+         \hat{\mathbf{\theta}}
          = \underset{\mathbf{\theta}}{\mathrm{argmax}}
-         \left[ 
+         \left[
          p(\mathbf{\theta} \,|\, \mathbf{x}_{1\ldots I})
-         \right] 
-         = \underset{\mathbf{\theta}}{\mathrm{argmax}} \left[ 
+         \right]
+         = \underset{\mathbf{\theta}}{\mathrm{argmax}} \left[
          \prod_{i=1}^I p(\mathbf{x}_i \,|\, \mathbf{\theta})
          p(\mathbf{\theta})
          \right]
@@ -170,7 +170,7 @@ block content
 
       section
         h2 Fully Bayesian Approach
-        p Many choices of $\mathbf{\theta}$ may be consistent with the data. 
+        p Many choices of $\mathbf{\theta}$ may be consistent with the data.
         p.fragment Point estimates cannot accommodate that.
         p.fragment.
           Fully Bayesian methods calculate the full joint posterior probability over the model parameters:
@@ -178,7 +178,7 @@ block content
           p(\mathbf{\theta} \,|\, \mathbf{x}_{1\ldots I}) = \frac{\prod_{i=1}^I p(\mathbf{x}_i \,|\, \mathbf{\theta}) p(\mathbf{\theta})} {p(\mathbf{x}_{1\ldots I})} $$
         p.fragment This is a distribution over possible models.
         aside.notes
-          ul 
+          ul
           li Accept reality: there may be many choices of theta that are consistent with the data.
           li Point estimates sweep that under the rug.
           li Discuss dimensionality of posterior
@@ -190,14 +190,14 @@ block content
         p.fragment.
           Since there are many possible $\mathbf{\theta}$ values, we must integrate over them all, weighting by their probability:
           $$
-          p(\mathbf{x}^* \,|\, \mathbf{x}_{1\ldots I}) = 
+          p(\mathbf{x}^* \,|\, \mathbf{x}_{1\ldots I}) =
           \int p(\mathbf{x}^* \,|\, \mathbf{\theta}) \, p(\mathbf{\theta} \,|\, \mathbf{x}_{1\ldots I}) d\mathbf{\theta}
           $$
         p.fragment #[span.green A unified picture:] "posterior" from ML and MAP estimation is like a $\delta$-function at $\mathbf{\hat\theta}$.
         p.fragment So predicting $\mathbf{x}^*$ simply amounts to evaluating $p(\mathbf{x}^* \,|\, \mathbf{\hat\theta })$.
 
 
-      section 
+      section
         h2 A minimal example: coin flipping
         p How do we test whether a coin is fair?
         p.
@@ -219,7 +219,7 @@ block content
           Use a #[span.green Beta distribution] for the prior $p(\theta)$:
           $$ \mathrm{Beta}(\theta \,|\, a, b) \propto
           \theta^{a - 1}(1 - \theta)^{b - 1} $$
-        //- $$ \mathrm{Beta}(\theta \,|\, a, b) = 
+        //- $$ \mathrm{Beta}(\theta \,|\, a, b) =
           \frac{\Gamma(a + b)}{\Gamma(a)\Gamma(b)}
           \theta^{a - 1}(1 - \theta)^{b - 1} $$
         div.lefthalf
@@ -239,7 +239,7 @@ block content
           li Generate coin tosses using a fair coin ($\theta = 0.5$)
           li Compute estimators for $\theta$ from the outcomes
         br
-        p We will compare $$\hat{\theta}_{MLE} = \frac{N_{h}}{N}$$ 
+        p We will compare $$\hat{\theta}_{MLE} = \frac{N_{h}}{N}$$
         p vs. the posterior mean $$E[\theta \,|\, \mathrm{outcomes}]$$
 
 
@@ -247,7 +247,7 @@ block content
         video.stretch(controls)
           source(data-src="flip.mp4" type="video/mp4")
           Your browser doesn't support HTML5 video in MP4 with H.264.
-      
+
       section
         h2 Observations
         p Both methods agree on the truth as $N \to \infty$
@@ -272,14 +272,14 @@ block content
           p Incrementally build a consistent map
           p Simultaneously determine location within map
 
-      
+
       section
         h2 Recursive state estimation
         p SLAM can be solved using an extended Kalman filter (EKF)
         p The EKF is a specialization of Bayesian filtering for linearized Gaussian models
         br
         p Simulation: autonomous navigation using predefined waypoints, landmarks observed with a rangefinder, and Bayesian filtering
-      
+
 
       section
         video.stretch(controls)
@@ -305,7 +305,7 @@ block content
 
 
       section
-        h2 Gaussian models        
+        h2 Gaussian models
         p The Gaussian is the highest-entropy distribution
         img(data-src='figs/gaussian.png' width='70%')
 
